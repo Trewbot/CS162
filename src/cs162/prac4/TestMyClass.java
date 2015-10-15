@@ -3,7 +3,6 @@ public class TestMyClass {
 	public static void main(String[] args){
 		MyClass myObj1 = new MyClass(5),
 				myObj2 = new MyClass(7);
-		//	the errors aren't important
 		myObj1.printX();
 		MyClass.incrementCount();
 		MyClass.incrementCount();
