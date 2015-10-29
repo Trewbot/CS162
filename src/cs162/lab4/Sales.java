@@ -16,6 +16,7 @@ public class Sales {
 			if(sales[i] > max)
 				max = sales[i];
 		}
+		System.out.print("\nTotal sales: " + total);
 		double average = (double)(total) / (double)(sales.length);
 		System.out.print("\nSaleperson(s) who performed below average: ");
 		for(int i = 0; i < sales.length; i++)
