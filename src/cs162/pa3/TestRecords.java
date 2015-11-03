@@ -22,34 +22,52 @@ public class TestRecords {
 		double total = 0;	//	the total of all grades
 		Records[] grades = new Records[countLines("StudentTests.dat")];
 		String header = "First_Name   Last_Name    ";
-		for(int i = 0; i < grades[0].getScores().length; i++)
+		for(int i = 0; i < 5; i++)
 			header += "Test" + (i + 1) + "  ";
 		header += "Average Grade";
 		out.println(header);
+		System.out.println("Num of students: " + grades.length);
+		//	doesn't use EOF because it is based on line counts already
 		for(int i = 0; i < grades.length; i++){
+			grades[i] = new Records();
 			grades[i].setLastName(in.next());
 			grades[i].setFirstName(in.next());
 			double[] scores = {
-				in.nextDouble(),
-				in.nextDouble(),
-				in.nextDouble(),
-				in.nextDouble(),
-				in.nextDouble()
+				in.nextInt(),
+				in.nextInt(),
+				in.nextInt(),
+				in.nextInt(),
+				in.nextInt()
 			};
 			grades[i].setScores(scores);
 			total += grades[i].getAverage();
+			out.printf(
+				"%-13s%-13s%-7.2f%-7.2f%-7.2f%-7.2f%-7.2f%-8.2f  %c  \n",
+				grades[i].getFirstName(),
+				grades[i].getLastName(),
+				grades[i].getScore(0),
+				grades[i].getScore(1),
+				grades[i].getScore(2),
+				grades[i].getScore(3),
+				grades[i].getScore(4),
+				grades[i].getAverage(),
+				grades[i].getGrade()
+			);
 		}
 		double average = total / grades.length;
+		out.printf("\nClass average: %.2f",average);
+		in.close();
+		out.close();
 	}
 	
 	//	counts the amount of lines in a given file
 	//	helpful to avoid having to input number of students
 	public static int countLines(String filename) throws IOException {
 	    LineNumberReader reader  = new LineNumberReader(new FileReader(filename));
-		int cnt = 0;
+		int lines = 0;
 		while (reader.readLine() != null){}
-		cnt = reader.getLineNumber(); 
+		lines = reader.getLineNumber(); 
 		reader.close();
-		return cnt;
+		return lines;
 	}
 }
