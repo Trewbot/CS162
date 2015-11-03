@@ -55,7 +55,7 @@ public class TestRecords {
 			);
 		}
 		double average = total / grades.length;
-		out.printf("\nClass average: %.2f",average);
+		out.printf("\nClass average = %.2f",average);
 		in.close();
 		out.close();
 	}
