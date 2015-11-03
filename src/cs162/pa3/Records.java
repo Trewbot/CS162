@@ -1,3 +1,13 @@
+/*
+ *	Trevor Hoglund
+ *	CSIS 162, Fall 2015
+ *	Section 1
+ *	PA3
+ *	Nov 03, 2015
+ *
+ *	A class for storing student records of 5 test scores
+ */
+
 package cs162.pa3;
 public class Records {
 	public static double

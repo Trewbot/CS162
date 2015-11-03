@@ -21,12 +21,11 @@ public class TestRecords {
 		out	= new PrintWriter("StudentGrades.dat");
 		double total = 0;	//	the total of all grades
 		Records[] grades = new Records[countLines("StudentTests.dat")];
-		String header = "First_Name   Last_Name    ";
+		String header = "First_Name  Last_Name   ";
 		for(int i = 0; i < 5; i++)
 			header += "Test" + (i + 1) + "  ";
 		header += "Average Grade";
 		out.println(header);
-		System.out.println("Num of students: " + grades.length);
 		//	doesn't use EOF because it is based on line counts already
 		for(int i = 0; i < grades.length; i++){
 			grades[i] = new Records();
@@ -42,7 +41,7 @@ public class TestRecords {
 			grades[i].setScores(scores);
 			total += grades[i].getAverage();
 			out.printf(
-				"%-13s%-13s%-7.2f%-7.2f%-7.2f%-7.2f%-7.2f%-8.2f  %c  \n",
+				"%-12s%-12s%-7.2f%-7.2f%-7.2f%-7.2f%-7.2f%-8.2f  %c  \n",
 				grades[i].getFirstName(),
 				grades[i].getLastName(),
 				grades[i].getScore(0),
