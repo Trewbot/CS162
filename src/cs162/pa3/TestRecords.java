@@ -29,8 +29,8 @@ public class TestRecords {
 		//	doesn't use EOF because it is based on line counts already
 		for(int i = 0; i < grades.length; i++){
 			grades[i] = new Records();
-			grades[i].setLastName(in.next());
 			grades[i].setFirstName(in.next());
+			grades[i].setLastName(in.next());
 			double[] scores = {
 				in.nextInt(),
 				in.nextInt(),
