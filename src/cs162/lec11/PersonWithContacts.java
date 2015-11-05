@@ -25,16 +25,8 @@ public class PersonWithContacts {
 			if(tarContact.equals(contacts[i])) return i;
 		return -1;
 	}
-	public String getFirstName(){
-		return firstName;
-	}
-	public String getLastName(){
-		return lastName;
-	}
-	public int getNumOfContacts(){
-		return numOfContacts;
-	}
-	public String toString(){
-		return firstName + " " + lastName + ": " + numOfContacts + " contacts";
-	}
+	public String getFirstName(){return firstName;}
+	public String getLastName(){return lastName;}
+	public int getNumOfContacts(){return numOfContacts;}
+	public String toString(){return firstName + " " + lastName + ": " + numOfContacts + " contacts";}
 }
