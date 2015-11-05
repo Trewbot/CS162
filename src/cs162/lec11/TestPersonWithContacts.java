@@ -1,44 +1,26 @@
 package cs162.lec11;
 public class TestPersonWithContacts {
-	
-	public static void main(String[] args)
-	{
-		//Create a PersonWithContacts
+	public static void main(String[] args){
 		PersonWithContacts me = new PersonWithContacts("Ruxin", "Dai");
-		
-		//Add several contacts to the person
-		me.addContacts("Ahmad");
-		me.addContacts("Hossein");
-		me.addContacts("Tony");
-		me.addContacts("Arpan");
-		me.addContacts("Jacob");
-		me.addContacts("Mary-Alice");
-		
-		
-		//Print all the contacts
+			me.addContacts("Ahmad");
+			me.addContacts("Hossein");
+			me.addContacts("Tony");
+			me.addContacts("Arpan");
+			me.addContacts("Jacob");
+			me.addContacts("Mary-Alice");
 		me.printAllContacts();
-		System.out.println();
-		
-		//Search contact
+		System.out.print("\n");
 		String target = "Tony";
-		int searchResult = me.searchContact(target);
-		if(searchResult == -1)
-			System.out.println("Search " + target + " fails!");
-		else
-			System.out.println(target + " positions at " + 
-								(searchResult + 1) + " of the contacts." );
-		System.out.println();
-		
+		int res;
+		System.out.println(((res = me.searchContact(target)) < 0
+				? "Search " + target + " fails!"
+				: target + " positions at " +  (res + 1) + " of the contacts."
+		)+ "\n");
 		target = "Jack";
-		searchResult = me.searchContact(target);
-		if(searchResult == -1)
-			System.out.println("Search " + target + " fails!");
-		else
-			System.out.println(target + " positions at " + 
-								(searchResult + 1) + " of the contacts." );
-		System.out.println();
-		
-		//Test toString method
+		System.out.println(((res = me.searchContact(target)) < 0
+				? "Search " + target + " fails!"
+				: target + " positions at " +  (res + 1) + " of the contacts."
+		)+ "\n");
 		System.out.println(me);
 	}
 
