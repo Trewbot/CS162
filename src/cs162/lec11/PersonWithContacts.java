@@ -20,10 +20,10 @@ public class PersonWithContacts {
 		for(int i = 0; i < numOfContacts; i++)
 			System.out.println(contacts[numOfContacts]);
 	}
-	public boolean searchContact(String tarContact){
+	public int searchContact(String tarContact){
 		for(int i = 0; i < numOfContacts; i++)
-			if(tarContact.equals(contacts[numOfContacts])) return true;
-		return false;
+			if(tarContact.equals(contacts[i])) return i;
+		return -1;
 	}
 	public String getFirstName(){
 		return firstName;
