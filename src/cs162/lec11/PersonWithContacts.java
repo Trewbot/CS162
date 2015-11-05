@@ -18,7 +18,7 @@ public class PersonWithContacts {
 	}
 	public void printAllContacts(){
 		for(int i = 0; i < numOfContacts; i++)
-			System.out.println(contacts[numOfContacts]);
+			System.out.println(contacts[i]);
 	}
 	public int searchContact(String tarContact){
 		for(int i = 0; i < numOfContacts; i++)
@@ -35,6 +35,6 @@ public class PersonWithContacts {
 		return numOfContacts;
 	}
 	public String toString(){
-		return firstName + " " + lastName;
+		return firstName + " " + lastName + ": " + numOfContacts + " contacts";
 	}
 }
