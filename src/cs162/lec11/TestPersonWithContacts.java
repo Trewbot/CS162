@@ -23,5 +23,4 @@ public class TestPersonWithContacts {
 		)+ "\n");
 		System.out.println(me);
 	}
-
 }
