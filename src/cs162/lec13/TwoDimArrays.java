@@ -31,6 +31,19 @@ public class TwoDimArrays {
 			for(int k = 0; k < arr[j].length; k++, i += 2)
 				arr[j][k] = i;
 		printArr(arr);
+		
+		//	not square
+		System.out.println("\nA not square array");
+		int[][] temp = {
+			new int[3],
+			new int[4],
+			new int[2]
+		}; 
+		int k = 1;
+		for(i = 0; i < temp.length; i++)
+			for(int j = 0; j < temp[i].length; j++, k++)
+				temp[i][j] = k * 10;
+		printArr(temp);
 	}
 	public static void printArr(int[][] arr){
 		for(int i = 0; i < (arr[0].length * 5) - 2; i++)
