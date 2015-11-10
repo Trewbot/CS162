@@ -46,7 +46,10 @@ public class TwoDimArrays {
 		printArr(temp);
 	}
 	public static void printArr(int[][] arr){
-		for(int i = 0; i < (arr[0].length * 5) - 2; i++)
+		int len = 0;
+		for(int i = 0; i < arr.length; i ++)
+			len = Math.max(len, arr[i].length);
+		for(int i = 0; i < (len * 5) - 2; i++)
 			System.out.print("-");
 		System.out.print("\n");
 		for(int j = 0; j < arr.length; j++){
