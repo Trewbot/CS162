@@ -45,6 +45,15 @@ public class CSTestScore {
 		
 		System.out.println("\nall scores:\n");
 		printStudentScores(scores);
+
+		System.out.print("\nenter specific student number:");
+		target = console.nextInt();
+		students[0] = target;
+		System.out.print("\n");
+		printStudentAverages(scores,students);
+		
+		System.out.println("\nall averages:\n");
+		printStudentAverages(scores);
 	}
 	public static void printStudentScores(double[][] scores){
 		System.out.println("            course 1    course 2    course 3");
@@ -70,6 +79,42 @@ public class CSTestScore {
 		System.out.println("            course " + course);
 		for(int i = 0; i < scores.length; i++){
 			System.out.printf("%-12s   %-9.0f\n","student "+(i+1),scores[i][course - 1]);
+		}
+		System.out.print("\n");
+	}
+	public static double[] averageScores(double[][] scores, int[] students){
+		double[] ret = new double[students.length];
+		double sum = 0;
+		for(int i = 0; i < students.length; i++){
+			sum = 0;
+			for(int j = 0; j < scores[students[i]-1].length; j++)
+				sum += scores[students[i]-1][j];
+			ret[i] = sum / scores[students[i]-1].length;
+		}
+		return ret;
+	}
+	public static double averageScores(double[][] scores, int course){
+		double sum = 0;
+		for(int i = 0; i < scores.length; i++)
+			sum += scores[i][course - 1];
+		return sum / scores.length;
+	}
+	public static void printStudentAverages(double[][] scores){
+		System.out.println("            average ");
+		int[] students = new int[scores.length];
+		for(int i = 0; i < scores.length; i++)
+			students[i] = i + 1;
+		double[] avg = averageScores(scores,students);
+		for(int i = 0; i < avg.length; i++){
+			System.out.printf("%-12s   %-9.0f\n","student "+(i+1),avg[i]);
+		}
+		System.out.print("\n");
+	}
+	public static void printStudentAverages(double[][] scores, int[] students){
+		System.out.println("            average ");
+		double[] avg = averageScores(scores,students);
+		for(int i = 0; i < avg.length; i++){
+			System.out.printf("%-12s   %-9.0f\n","student "+students[i],avg[i]);
 		}
 		System.out.print("\n");
 	}
