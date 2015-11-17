@@ -45,6 +45,8 @@ public class CSTestScore {
 		
 		System.out.println("\nall scores:\n");
 		printStudentScores(scores);
+		
+		System.out.println("\nAVERAGES\n================\n");
 
 		System.out.print("\nenter specific student number:");
 		target = console.nextInt();
@@ -59,7 +61,19 @@ public class CSTestScore {
 		course = console.nextInt();
 		System.out.print("\n");
 		printStudentAverages(scores,course);
+		
+		System.out.println("\nHIGH SCORES\n================\n");
+		
+		System.out.println("\nstudents' high scores:\n");
+		printHighScores(scores);
+		
+		System.out.print("\nenter specific student number:");
+		target = console.nextInt();
+		students[0] = target;
+		System.out.print("\n");
+		printHighScores(scores,students);
 	}
+	//	print out all students' scores
 	public static void printStudentScores(double[][] scores){
 		System.out.println("            course 1    course 2    course 3");
 		for(int i = 0; i < scores.length; i++){
@@ -70,6 +84,7 @@ public class CSTestScore {
 		}
 		System.out.print("\n");
 	}
+	//	print out a specific set of students' scores (can be individual)
 	public static void printStudentScores(double[][] scores, int[] students){
 		System.out.println("            course 1    course 2    course 3");
 		for(int i = 0; i < students.length; i++){
@@ -80,6 +95,7 @@ public class CSTestScore {
 		}
 		System.out.print("\n");
 	}
+	//	print out students' scores from a specific course
 	public static void printStudentScores(double[][] scores, int course){
 		System.out.println("            course " + course);
 		for(int i = 0; i < scores.length; i++){
@@ -87,6 +103,7 @@ public class CSTestScore {
 		}
 		System.out.print("\n");
 	}
+	//	returns averages from a set of students
 	public static double[] averageScores(double[][] scores, int[] students){
 		double[] ret = new double[students.length];
 		double sum = 0;
@@ -98,12 +115,14 @@ public class CSTestScore {
 		}
 		return ret;
 	}
+	//	returns averages for a specific course
 	public static double averageScores(double[][] scores, int course){
 		double sum = 0;
 		for(int i = 0; i < scores.length; i++)
 			sum += scores[i][course - 1];
 		return sum / scores.length;
 	}
+	//	prints out averages for all students
 	public static void printStudentAverages(double[][] scores){
 		System.out.println("            average ");
 		int[] students = new int[scores.length];
@@ -115,6 +134,7 @@ public class CSTestScore {
 		}
 		System.out.print("\n");
 	}
+	//	prints out averages for a specific set of students
 	public static void printStudentAverages(double[][] scores, int[] students){
 		System.out.println("            average ");
 		double[] avg = averageScores(scores,students);
@@ -123,9 +143,38 @@ public class CSTestScore {
 		}
 		System.out.print("\n");
 	}
+	//	print out average for a specific course
 	public static void printStudentAverages(double[][] scores, int course){
 		System.out.println("            course "+course);
 		System.out.printf("%-12s   %-9.0f\n","average",averageScores(scores,course));
 		System.out.print("\n");
+	}
+	//	prints out highest scores for all students
+	public static void printHighScores(double[][] scores){
+		for(int i = 0; i < scores.length; i++){
+			double highestScore = 0; int highestCourse = 0;
+			for(int j = 0; j < scores[i].length; j++)
+				if(scores[i][j] > highestScore){
+					highestScore = scores[i][j];
+					highestCourse = j + 1;
+				}
+			System.out.println("            course "+highestCourse);
+			System.out.printf("%-12s   %-9.0f\n","student "+(i+1),highestScore);
+			System.out.print("\n\n");
+		}
+	}
+	//	prints out highest scores for a specific set of students
+	public static void printHighScores(double[][] scores, int[] students){
+		for(int i = 0; i < students.length; i++){
+			double highestScore = 0; int highestCourse = 0;
+			for(int j = 0; j < scores[students[i] - 1].length; j++)
+				if(scores[students[i] - 1][j] > highestScore){
+					highestScore = scores[students[i] - 1][j];
+					highestCourse = j + 1;
+				}
+			System.out.println("            course "+highestCourse);
+			System.out.printf("%-12s   %-9.0f\n","student "+students[i],highestScore);
+			System.out.print("\n\n");
+		}
 	}
 }
