@@ -54,6 +54,11 @@ public class CSTestScore {
 		
 		System.out.println("\nall averages:\n");
 		printStudentAverages(scores);
+		
+		System.out.print("\nenter specific course number:");
+		course = console.nextInt();
+		System.out.print("\n");
+		printStudentAverages(scores,course);
 	}
 	public static void printStudentScores(double[][] scores){
 		System.out.println("            course 1    course 2    course 3");
@@ -116,6 +121,11 @@ public class CSTestScore {
 		for(int i = 0; i < avg.length; i++){
 			System.out.printf("%-12s   %-9.0f\n","student "+students[i],avg[i]);
 		}
+		System.out.print("\n");
+	}
+	public static void printStudentAverages(double[][] scores, int course){
+		System.out.println("            course "+course);
+		System.out.printf("%-12s   %-9.0f\n","average",averageScores(scores,course));
 		System.out.print("\n");
 	}
 }
