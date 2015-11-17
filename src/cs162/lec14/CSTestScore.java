@@ -96,7 +96,7 @@ public class CSTestScore {
 			System.out.println((i == students.length - 1 ? "\\" : "+") + "-- student " + students[i] + ":");
 			for(int j = 0; j < scores[students[i]-1].length; j++)
 				//	System.out.printf("   %-9.0f",scores[students[i]-1][j]);
-				System.out.printf((i == scores.length - 1 ? " " : "|") + "   " + (j == scores[i].length - 1 ? "\\" : "+") + "-- course " + (j+1) + ": %.0f\n",scores[students[i]-1][j]);
+				System.out.printf((i == students.length - 1 ? " " : "|") + "   " + (j == scores[i].length - 1 ? "\\" : "+") + "-- course " + (j+1) + ": %.0f\n",scores[students[i]-1][j]);
 			//	System.out.print("\n");
 		}
 		System.out.print("\n");
@@ -105,7 +105,7 @@ public class CSTestScore {
 	public static void printStudentScores(double[][] scores, int course){
 		//	System.out.println("            course " + course);
 		for(int i = 0; i < scores.length; i++){
-			System.out.println((i == scores.length - 1 ? "\\" : "+") + "-- student " + scores[i] + ":");
+			System.out.println((i == scores.length - 1 ? "\\" : "+") + "-- student " + (i+1) + ":");
 			System.out.printf((i == scores.length - 1 ? " " : "|") + "   " + "\\" + "-- course " + course + ": %.0f\n",scores[i][course - 1]);
 			//	System.out.printf("%-12s   %-9.0f\n","student "+(i+1),scores[i][course - 1]);
 		}
@@ -132,7 +132,7 @@ public class CSTestScore {
 	}
 	//	prints out averages for all students
 	public static void printStudentAverages(double[][] scores){
-		System.out.println("            average ");
+		//	System.out.println("            average ");
 		int[] students = new int[scores.length];
 		for(int i = 0; i < scores.length; i++)
 			students[i] = i + 1;
@@ -146,7 +146,7 @@ public class CSTestScore {
 	}
 	//	prints out averages for a specific set of students
 	public static void printStudentAverages(double[][] scores, int[] students){
-		System.out.println("            average ");
+		//	System.out.println("            average ");
 		double[] avg = averageScores(scores,students);
 		for(int i = 0; i < avg.length; i++){
 			//	System.out.printf("%-12s   %-9.0f\n","student "+students[i],avg[i]);
