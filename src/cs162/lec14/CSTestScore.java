@@ -9,9 +9,9 @@ public class CSTestScore {
 		int numStudents = console.nextInt();
 		double[][] scores = new double[numStudents][NUM_COURSES];
 		for(int i = 0; i < numStudents; i++){
-			System.out.println((i == numStudents - 1 ? "\\" : "+") + "-- enter student " + (i+1) + "'s scores:");
+			System.out.println((i == numStudents - 1 ? "\\" : "+") + "-- student " + (i+1) + ":");
 			for(int j = 0; j < NUM_COURSES; j++){
-				System.out.print((i == numStudents - 1 ? " " : "|") + "   " + (j == NUM_COURSES - 1 ? "\\" : "+") + "-- score for course " + (j+1) + ": ");
+				System.out.print((i == numStudents - 1 ? " " : "|") + "   " + (j == NUM_COURSES - 1 ? "\\" : "+") + "-- course " + (j+1) + ": ");
 				scores[i][j] = console.nextDouble();
 			}
 		}
@@ -47,29 +47,29 @@ public class CSTestScore {
 		printStudentScores(scores);
 	}
 	public static void printStudentScores(double[][] scores){
-		System.out.println("            Course1    Course2    Course3");
+		System.out.println("            course 1    course 2    course 3");
 		for(int i = 0; i < scores.length; i++){
 			System.out.printf("%-12s","Student"+(i+1));
 			for(int j = 0; j < scores[i].length; j++)
-				System.out.printf("  %-9.0f",scores[i][j]);
+				System.out.printf("   %-9.0f",scores[i][j]);
 			System.out.print("\n");
 		}
 		System.out.print("\n");
 	}
 	public static void printStudentScores(double[][] scores, int[] students){
-		System.out.println("            Course1    Course2    Course3");
+		System.out.println("            course 1    course 2    course 3");
 		for(int i = 0; i < students.length; i++){
-			System.out.printf("%-12s","Student"+students[i]);
+			System.out.printf("%-12s","student "+students[i]);
 			for(int j = 0; j < scores[students[i]-1].length; j++)
-				System.out.printf("  %-9.0f",scores[students[i]-1][j]);
+				System.out.printf("   %-9.0f",scores[students[i]-1][j]);
 			System.out.print("\n");
 		}
 		System.out.print("\n");
 	}
 	public static void printStudentScores(double[][] scores, int course){
-		System.out.println("            Course" + course);
+		System.out.println("            course " + course);
 		for(int i = 0; i < scores.length; i++){
-			System.out.printf("%-12s  %-9.0f\n","Student"+(i+1),scores[i][course - 1]);
+			System.out.printf("%-12s   %-9.0f\n","student "+(i+1),scores[i][course - 1]);
 		}
 		System.out.print("\n");
 	}
