@@ -1,5 +1,8 @@
 package cs162.lec14;
 import java.util.Scanner;
+
+//	TODO: Sanitize inputs
+
 public class CSTestScore {
 	static Scanner console = new Scanner(System.in);
 	static final int NUM_COURSES = 3;
@@ -151,7 +154,7 @@ public class CSTestScore {
 		for(int i = 0; i < avg.length; i++){
 			//	System.out.printf("%-12s   %-9.0f\n","student "+students[i],avg[i]);
 			System.out.println((i == avg.length - 1 ? "\\" : "+") + "-- student " + students[i] + ":");
-			System.out.printf((i == scores.length - 1 ? " " : "|") + "   " + "\\" + "-- average : %.0f\n",avg[i]);
+			System.out.printf((i == students.length - 1 ? " " : "|") + "   " + "\\" + "-- average : %.0f\n",avg[i]);
 		}
 		System.out.print("\n");
 	}
