@@ -8,6 +8,7 @@ public class Sales {
 		int numSalespeople = console.nextInt();
 		System.out.print("enter the number of manufacturers: ");
 		int numManufacturers = console.nextInt();
+		System.out.println("\n");
 		//	2.	ask the manager to enter the number of cars from different manufacturers sold by each sales person
 		int[][] sales = new int[numSalespeople][numManufacturers];
 		for(int i = 0; i < sales.length; i++){
@@ -33,6 +34,7 @@ public class Sales {
 				total += sales[j][i];
 			System.out.printf("The number of sold cars from manufacturer %d is %d.\n",i+101,total);
 		}
+		System.out.println("\n");
 		//	5.	output the total number of cars sold at the end of the month
 		int allCars = 0;
 		for(int i = 0; i < sales.length; i++)
@@ -45,7 +47,7 @@ public class Sales {
 		for(int i = 0; i < sales[0].length; i++)
 			if(sales[0][i] > max)
 				max = sales[0][i];
-		System.out.printf("Salseperson %d sold the most cars (%d) from manufacturer(s)",1,max);
+		System.out.printf("Salseperson %d sold the most cars (%d cars) from manufacturer(s)",1,max);
 		for(int i = 0; i < sales[0].length; i++)
 			if(sales[0][i] == max)
 				System.out.print(" "+(i+101));
@@ -55,7 +57,7 @@ public class Sales {
 		for(int i = 0; i < sales.length; i++)
 			if(sales[i][0] > max)
 				max = sales[i][0];
-		System.out.printf("The most cars from manufacturer %d (%d) were sold by salesperson(s)",101,max);
+		System.out.printf("The most cars from manufacturer %d (%d cars) were sold by salesperson(s)",101,max);
 		for(int i = 0; i < sales.length; i++)
 			if(sales[i][0] == max)
 				System.out.print(" "+(i+1));
@@ -69,7 +71,7 @@ public class Sales {
 			if(total > max)
 				max = total;
 		}
-		System.out.printf("The salesperson(s) who sold the most cars (%d) is/are",max);
+		System.out.printf("The salesperson(s) who sold the most cars (%d cars) is/are",max);
 		for(int i = 0; i < sales.length; i++){
 			int total = 0;
 			for(int j = 0; j < sales[i].length; j++)
