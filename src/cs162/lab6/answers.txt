@@ -1,0 +1,3 @@
+#2	it does not call super() in the constructor
+#8	there are different outputs because each dog object is of a different subclass, each of which has its own toString method
+#9	method is undefined, avgBreedWeight() does not exist for the superclass and yorkshire subclass
